@@ -7,7 +7,19 @@ function initMap() {
     const options = {
         zoom: 17,
         center: { lat: 36.8380903730006, lng: -2.4607514064735563 },
-        streetViewControl: false
+        streetViewControl: false,
+        styles: [
+            {
+                featureType: 'poi',
+                stylers: [
+                    {
+                        visibility: 'off',
+                    }
+                ]
+            }
+        ],
+        maxZoom: 16,
+
     }
 
     var map = new google.maps.Map(document.getElementById('map'), options);
