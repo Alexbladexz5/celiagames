@@ -1,6 +1,8 @@
 /* Map */
 .map-box {
     margin-top: 70px;
+    margin-right: 15px;
+    margin-left: 15px;
     height: calc(100vh - 70px);
 }
 

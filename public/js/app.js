@@ -120,41 +120,13 @@ function initMap() {
 
     }
 
-    //Funcion para randomizar los waypoints con una precision del 5%
-    function randomize(waypoints) {
-        let waypointsRandomized = [];
-        for (let i = 0; i < waypoints.length; i++) {
-            let random = Math.random();
-            if (random < 0.05) {
-                waypointsRandomized.push(waypoints[i]);
-            }
-        }
-        return waypointsRandomized;
-    }
-    var darkModeOn = false;
-    //add event logged by chechbox that changes variable boolean darkmodeon to true or false 
-    $('#darkmode').change(function () {
-        if ($(this).is(':checked')) {
-            darkModeOn = true;
-        } else {
-            darkModeOn = false;
-        }
-    });
+    //detectar si el sistema tiene modo oscuro, tnato en windows, como macos, como linux, como android, etc
+    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-
-    //funcion que recibe un boolean para decidir si pone el modo oscuro o no
-    var options = function(darkModeOn){
-        if(darkModeOn){
-            return nightOptions;
-        }else{
-            return dayOptions;
-        }
-    };
-    //hay que cambiar el cambio de tema, está incompleto
-    
-    var map = new google.maps.Map(document.getElementById('map'), dayOptions);
+    const map = new google.maps.Map(document.getElementById('map'), isDarkMode ? nightOptions : dayOptions);
 
     const cityCircle = new google.maps.Circle({
+        content:"A",
         strokeColor: "#FF0000",
         strokeOpacity: 0.8,
         strokeWeight: 2,
