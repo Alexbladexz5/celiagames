@@ -3,17 +3,38 @@ $(document).ready(function () {
     $('#loading').fadeOut('slow');
 });
 function initMap() {
-    const options = {
+    const dayOptions = {
         zoom: 17,
         center: { lat: 36.8380903730006, lng: -2.4607514064735563 },
         streetViewControl: false,
         maxZoom: 16,
+        minZoom: 15,
         styles: [
             {
                 featureType: 'poi',
                 stylers: [
                     {
                         visibility: 'off',
+
+                    }
+                ]
+            },
+        ],
+
+    }
+    const nightOptions = {
+        zoom: 17,
+        center: { lat: 36.8380903730006, lng: -2.4607514064735563 },
+        streetViewControl: false,
+        maxZoom: 16,
+        minZoom: 15,
+        styles: [
+            {
+                featureType: 'poi',
+                stylers: [
+                    {
+                        visibility: 'off',
+
                     }
                 ]
             },
@@ -110,8 +131,28 @@ function initMap() {
         }
         return waypointsRandomized;
     }
+    var darkModeOn = false;
+    //add event logged by chechbox that changes variable boolean darkmodeon to true or false 
+    $('#darkmode').change(function () {
+        if ($(this).is(':checked')) {
+            darkModeOn = true;
+        } else {
+            darkModeOn = false;
+        }
+    });
 
-    var map = new google.maps.Map(document.getElementById('map'), options);
+
+    //funcion que recibe un boolean para decidir si pone el modo oscuro o no
+    var options = function(darkModeOn){
+        if(darkModeOn){
+            return nightOptions;
+        }else{
+            return dayOptions;
+        }
+    };
+    //hay que cambiar el cambio de tema, está incompleto
+    
+    var map = new google.maps.Map(document.getElementById('map'), dayOptions);
 
     const cityCircle = new google.maps.Circle({
         strokeColor: "#FF0000",
