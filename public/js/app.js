@@ -120,38 +120,165 @@ function initMap() {
 
     }
 
+    function generateMarkers(pointsMap) {
+        // Se crean marcadores de cada punto
+        for (var i = 0; i < pointsMap.length; i++) {
+            new google.maps.Marker({
+                position: pointsMap[i],
+                label: pointsMap[i].description,
+                map: map,
+                icon: "images/marker2.png",
+            });
+
+            /*
+            new google.maps.Circle({
+                strokeColor: "#FF0000",
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: "#FF0000",
+                fillOpacity: 0.35,
+                map,
+                center: {lat: pointsMap[i].lat, lng: pointsMap[i].lng},
+                radius: 50,
+            });
+            */
+
+        }
+    }
+
+    function generateRandomCoordinates(array) {
+        let newArray = [];
+        for (let i = 0; i < array.length; i++) {
+            let random = Math.random() * 0.05;
+            let newCoord = array[i] + random;
+            newArray.push(newCoord);
+        }
+        return newArray;
+    }
+
+
     //detectar si el sistema tiene modo oscuro, tnato en windows, como macos, como linux, como android, etc
     const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
     const map = new google.maps.Map(document.getElementById('map'), isDarkMode ? nightOptions : dayOptions);
 
-    const cityCircle = new google.maps.Circle({
-        content:"A",
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map,
-        center: { lat: 36.8380903730006, lng: -2.4607514064735563 },
-        radius: 100,
-    });
-
-    const cityCircle2 = new google.maps.Circle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map,
-        center: { lat: 36.83829937579616, lng: -2.463369915991792 },
-        radius: 50,
-    });
-    //PUNTO T , H , P, U -> NO ENCONTRADO PREGUNTAR A FELIX
     //Array para los puntos, deberan ser pasados a la funcion de randomizar y despues ser pasados como obejtos circle de maps
     const markers = [
-        { lat: 36.8403461, lng: - 2.4683977, description: "A" }, { lat: 36.838592, lng: - 2.467101, description: "S" }, { lat: 36.8389123, lng: - 2.4679658, description: "K" }, { lat: 36.8393413, lng: - 2.4690482, description: "N" }, { lat: 36.83829937579616, lng: - 2.463369915991792, description: "T" }, { lat: 36.839972, lng: - 2.465078, description: "O" }, { lat: 36.837707, lng: - 2.466765, description: "R" }, { lat: 36.8371766, lng: - 2.464134, description: "E" }, { lat: 36.8371265, lng: - 2.4648705, description: "D" }, { lat: 36.8359531, lng: - 2.4700537, description: "G" }, { lat: 36.8346513, lng: - 2.4673469, description: "F" }, { lat: 36.8337794, lng: - 2.4654702, description: "L" }, { lat: 36.8323273, lng: - 2.464994, description: "B" }, { lat: 36.8348762, lng: - 2.4579586, description: "I" }, { lat: 36.8369768, lng: - 2.4593192, description: "Q" }, { lat: 36.8416706, lng: - 2.4661463, description: "J" }, { lat: 6.8420943, lng: - 2.4651482, description: "M" }, { lat: 36.8442162, lng: - 2.46557, description: "C" }, { lat: 36.8416706, lng: - 2.4661463, description: "J" }
+        {
+            "lat": 36.8403461,
+            "lng": - 2.4683977,
+            "description": "A"
+        },
+        {
+            "lat": 36.838592,
+            "lng": - 2.467101,
+            "description": "S"
+        },
+        {
+            "lat": 36.8389123,
+            "lng": - 2.4679658,
+            "description": "K"
+        },
+        {
+            "lat": 36.8393413,
+            "lng": - 2.4690482,
+            "description": "N"
+        },
+        {
+            "lat": 36.83829937579616,
+            "lng": - 2.463369915991792,
+            "description": "T"
+        },
+        {
+            "lat": 36.839972,
+            "lng": - 2.465078,
+            "description": "O"
+        },
+        {
+            "lat": 36.837707,
+            "lng": - 2.466765,
+            "description": "R"
+        },
+        {
+            "lat": 36.8371766,
+            "lng": - 2.464134,
+            "description": "E"
+        },
+        {
+            "lat": 36.8371265,
+            "lng": - 2.4648705,
+            "description": "D"
+        },
+        {
+            "lat": 36.8359531,
+            "lng": - 2.4700537,
+            "description": "G"
+        },
+        {
+            "lat": 36.8346513,
+            "lng": - 2.4673469,
+            "description": "F"
+        },
+        {
+            "lat": 36.8337794,
+            "lng": - 2.4654702,
+            "description": "L"
+        },
+        {
+            "lat": 36.8323273,
+            "lng": - 2.464994,
+            "description": "B"
+        },
+        {
+            "lat": 36.8348762,
+            "lng": - 2.4579586,
+            "description": "I"
+        },
+        {
+            "lat": 36.8369768,
+            "lng": - 2.4593192,
+            "description": "Q"
+        },
+        {
+            "lat": 36.8416706,
+            "lng": - 2.4661463,
+            "description": "J"
+        },
+        {
+            "lat": 6.8420943,
+            "lng": - 2.4651482,
+            "description": "M"
+        },
+        {
+            "lat": 36.8442162,
+            "lng": - 2.46557,
+            "description": "C"
+        },
+        {
+            "lat": 36.8416706,
+            "lng": - 2.4661463,
+            "description": "J"
+        },
+        {
+            "lat": 36.839802,
+            "lng": - 2.467844,
+            "description": "P"
+        },
+        {
+            "lat": 36.842926,
+            "lng": - 2.457797,
+            "description": "H"
+        },
+        {
+            "lat": 36.8398892,
+            "lng": - 2.4701185,
+            "description": "T"
+        }
     ];
+
+    generateMarkers(markers);
+
+
 
 
     //window.gMap = map;
