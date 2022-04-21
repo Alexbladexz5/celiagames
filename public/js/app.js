@@ -15,7 +15,6 @@ function initMap() {
                 stylers: [
                     {
                         visibility: 'off',
-
                     }
                 ]
             },
@@ -125,37 +124,12 @@ function initMap() {
         for (var i = 0; i < pointsMap.length; i++) {
             new google.maps.Marker({
                 position: pointsMap[i],
-                label: pointsMap[i].description,
+                label: { text: pointsMap[i].description, color: "#ffffff" },
                 map: map,
-                icon: "images/marker2.png",
+                icon: "images/markerResize.png",
             });
-
-            /*
-            new google.maps.Circle({
-                strokeColor: "#FF0000",
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#FF0000",
-                fillOpacity: 0.35,
-                map,
-                center: {lat: pointsMap[i].lat, lng: pointsMap[i].lng},
-                radius: 50,
-            });
-            */
-
         }
     }
-
-    function generateRandomCoordinates(array) {
-        let newArray = [];
-        for (let i = 0; i < array.length; i++) {
-            let random = Math.random() * 0.05;
-            let newCoord = array[i] + random;
-            newArray.push(newCoord);
-        }
-        return newArray;
-    }
-
 
     //detectar si el sistema tiene modo oscuro, tnato en windows, como macos, como linux, como android, etc
     const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -240,11 +214,6 @@ function initMap() {
             "description": "Q"
         },
         {
-            "lat": 36.8416706,
-            "lng": - 2.4661463,
-            "description": "J"
-        },
-        {
             "lat": 6.8420943,
             "lng": - 2.4651482,
             "description": "M"
@@ -275,8 +244,15 @@ function initMap() {
             "description": "T"
         }
     ];
-
-    generateMarkers(markers);
+    //función que lee un array, y se cambian los campos del array, lat y lng con una variación de 0,025% pero respetando la estructura del array (lat, lng, description)
+    function generateRandomPoints(array) {
+        for (var i = 0; i < array.length; i++) {
+            array[i].lat = array[i].lat + (Math.random() * 0.00025);
+            array[i].lng = array[i].lng + (Math.random() * 0.00025);
+        }
+        return array;
+    }
+    generateMarkers(generateRandomPoints(markers));
 
 
 
