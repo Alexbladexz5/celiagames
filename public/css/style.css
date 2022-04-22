@@ -8,6 +8,7 @@
 
 #map {
     height: inherit;
+    position: relative;
 }
 
 .gmnoprint {
@@ -251,7 +252,7 @@ body
 .layer
 {
     width: 100%;
-    background-color: #ebf7fc;
+    background-color: #ffffff;
     transition: 0.3s ease all;
     z-index: 1;
 }
@@ -259,7 +260,6 @@ body
 /* Button 1 */
 #button-1 .knobs:before
 {
-    content: 'YES';
     position: absolute;
     top: 4px;
     left: 4px;
@@ -267,25 +267,39 @@ body
     height: 10px;
     color: #fff;
     font-size: 10px;
-    font-weight: bold;
     text-align: center;
     line-height: 1;
     padding: 9px 4px;
-    background-color: #03A9F4;
+    background-color: #292929;
     border-radius: 50%;
     transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+    
+    /* Fontawesome */
+    font-family: "Font Awesome 5 Free";
+    content: "\f185";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
 }
 
 #button-1 .checkbox:checked + .knobs:before
 {
-    content: 'NO';
     left: 42px;
-    background-color: #f44336;
+    background-color: #292929;
+
+    /* Fontawesome */
+    font-family: "Font Awesome 5 Free";
+    content: "\f186";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
 }
 
 #button-1 .checkbox:checked ~ .layer
 {
-    background-color: #fcebeb;
+    background-color: #ffffff;
 }
 
 #button-1 .knobs, #button-1 .knobs:before, #button-1 .layer
