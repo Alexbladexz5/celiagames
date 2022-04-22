@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
+/* https://iescelia.org/yincana22 */
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,8 +35,10 @@
 
     <!-- Map -->
     <main>
+        <div>
         <div class="map-box">
             <div id="map"></div>
+        </div>
         </div>
     </main>
 

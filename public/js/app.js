@@ -9,11 +9,11 @@ document.getElementById('toggle-mode').addEventListener('change', function(event
 
 function initMap() {
     const dayOptions = {
-        zoom: 17,
-        center: { lat: 36.8380903730006, lng: -2.4607514064735563 },
+        zoom: 14.21,
+        center: { lat: 36.8374693, lng: -2.4619312},
         streetViewControl: false,
-        maxZoom: 16,
-        minZoom: 15,
+        maxZoom: 18,
+        minZoom: 14,
         styles: [
             {
                 featureType: 'poi',
@@ -139,7 +139,7 @@ function initMap() {
     //detectar si el sistema tiene modo oscuro, tnato en windows, como macos, como linux, como android, etc
     const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const map = new google.maps.Map(document.getElementById('map'), isDarkMode ? nightOptions : dayOptions);
+    const map = new google.maps.Map(document.getElementById('map'), dayOptions);
 
     //Array para los puntos, deberan ser pasados a la funcion de randomizar y despues ser pasados como obejtos circle de maps
     const markers = [
@@ -214,7 +214,7 @@ function initMap() {
             "description": "Q"
         },
         {
-            "lat": 6.8420943,
+            "lat": 36.8420943,
             "lng": - 2.4651482,
             "description": "M"
         },
