@@ -25,7 +25,7 @@ function initMap() {
         zoom: 17,
         center: { lat: 36.8380903730006, lng: -2.4607514064735563 },
         streetViewControl: false,
-        maxZoom: 16,
+        maxZoom: 18,
         minZoom: 15,
         styles: [
             {
@@ -126,7 +126,7 @@ function initMap() {
                 position: pointsMap[i],
                 label: { text: pointsMap[i].description, color: "#ffffff" },
                 map: map,
-                icon: "images/markerResize.png",
+                //icon: "images/markerResize.png",
             });
         }
     }
@@ -157,11 +157,6 @@ function initMap() {
             "lat": 36.8393413,
             "lng": - 2.4690482,
             "description": "N"
-        },
-        {
-            "lat": 36.83829937579616,
-            "lng": - 2.463369915991792,
-            "description": "T"
         },
         {
             "lat": 36.839972,
@@ -239,8 +234,8 @@ function initMap() {
             "description": "H"
         },
         {
-            "lat": 36.8398892,
-            "lng": - 2.4701185,
+            "lat": 36.839842,
+            "lng": - 2.470082,
             "description": "T"
         }
     ];
@@ -252,7 +247,8 @@ function initMap() {
         }
         return array;
     }
-    generateMarkers(generateRandomPoints(markers));
+    //generateMarkers(generateRandomPoints(generateRandomPoints2(markers)));
+    generateMarkers(markers)
 
 
 
