@@ -23,6 +23,14 @@
                 </label>
             </div>
         </nav>
+
+
+            <div class="button r" id="button-1">
+                <input type="checkbox" class="checkbox" id="toggle-mode">
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+
     </header>
 
     <!-- Map -->
