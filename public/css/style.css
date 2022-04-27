@@ -1,3 +1,9 @@
+/* Nav grid */
+.nav-flexbox {
+    display: flex;
+    
+}
+
 /* Map */
 .map-box {
     margin-top: 70px;
@@ -36,7 +42,7 @@ body {
     overflow: hidden;
 }
 
-nav {
+.nav-flexbox nav {
     position: absolute;
     /*top: 50%;*/
     right: 0;
@@ -47,7 +53,7 @@ nav {
     transform: translateY(20%);
 }
 
-nav a {
+.nav-flexbox nav a {
     position: relative;
     width: 33.333%;
     display: table-cell;
@@ -60,8 +66,8 @@ nav a {
     transition: 0.2s ease color;
 }
 
-nav a:before,
-nav a:after {
+.nav-flexbox nav a:before,
+.nav-flexbox nav a:after {
     content: "";
     position: absolute;
     border-radius: 50%;
@@ -69,41 +75,41 @@ nav a:after {
     transition: 0.2s ease transform;
 }
 
-nav a:before {
+.nav-flexbox nav a:before {
     top: 0;
     left: 10px;
     width: 6px;
     height: 6px;
 }
 
-nav a:after {
+.nav-flexbox nav a:after {
     top: 5px;
     left: 18px;
     width: 4px;
     height: 4px;
 }
 
-nav a:nth-child(1):before {
+.nav-flexbox nav a:nth-child(1):before {
     background-color: yellow;
 }
 
-nav a:nth-child(1):after {
+.nav-flexbox nav a:nth-child(1):after {
     background-color: red;
 }
 
-nav a:nth-child(2):before {
+.nav-flexbox nav a:nth-child(2):before {
     background-color: #00e2ff;
 }
 
-nav a:nth-child(2):after {
+.nav-flexbox nav a:nth-child(2):after {
     background-color: #89ff00;
 }
 
-nav a:nth-child(3):before {
+.nav-flexbox nav a:nth-child(3):before {
     background-color: purple;
 }
 
-nav a:nth-child(3):after {
+.nav-flexbox nav a:nth-child(3):after {
     background-color: palevioletred;
 }
 
@@ -118,25 +124,25 @@ nav a:nth-child(3):after {
     transition: 0.2s ease left;
 }
 
-nav a:hover {
+.nav-flexbox nav a:hover {
     color: #fff;
 }
 
-nav a:hover:before,
-nav a:hover:after {
+.nav-flexbox nav a:hover:before,
+.nav-flexbox nav a:hover:after {
     transform: scale(1);
 }
 
-nav a:nth-child(1):hover ~ #indicator {
+.nav-flexbox nav a:nth-child(1):hover ~ #indicator {
     background: linear-gradient(130deg, yellow, red);
 }
 
-nav a:nth-child(2):hover ~ #indicator {
+.nav-flexbox nav a:nth-child(2):hover ~ #indicator {
     left: 34%;
     background: linear-gradient(130deg, #00e2ff, #89ff00);
 }
 
-nav a:nth-child(3):hover ~ #indicator {
+.nav-flexbox nav a:nth-child(3):hover ~ #indicator {
     left: 70%;
     background: linear-gradient(130deg, purple, palevioletred);
 }
@@ -176,7 +182,7 @@ body
     top: 50%;
     width: 74px;
     height: 36px;
-    margin: -20px auto 0 auto;
+    margin: 13px auto 0 auto;
     overflow: hidden;
 }
 
@@ -264,4 +270,3 @@ body
 {
     transition: 0.3s ease all;
 }
-

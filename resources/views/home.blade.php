@@ -13,18 +13,18 @@
 <body>
     <!-- Navbar -->
     <header class="fixed-top">
-        <nav>
-            <a href="https://iescelia.org/web/">Home</a>
-            <div id="indicator"></div>
-        </nav>
-        
-        <div class="button r" id="button-1">
-            <input type="checkbox" class="checkbox" id="toggle-mode">
-            <div class="knobs"></div>
-            <div class="layer"></div>
-        </div>
+        <div class="nav-flexbox">
+            <nav>
+                <a href="https://iescelia.org/web/">Home</a>
+                <div id="indicator"></div>
+            </nav>
             
-
+            <div class="button r" id="button-1">
+                <input type="checkbox" class="checkbox" id="toggle-mode">
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+        </div>    
     </header>
 
     <!-- Map -->
@@ -39,5 +39,6 @@
     </script>
     <script src="{{ asset('/js/app.js') }}"></script>
 </body>
+
 
 </html>
