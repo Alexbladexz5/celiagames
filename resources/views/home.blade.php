@@ -15,7 +15,7 @@
     <header class="fixed-top">
         <div class="nav-flexbox">
             <nav>
-                <a href="https://iescelia.org/web/">Home</a>
+                <a href="https://iescelia.org/web/" id="homeButton">Inicio</a>
                 <div id="indicator"></div>
             </nav>
             
